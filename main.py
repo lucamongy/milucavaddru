@@ -11,16 +11,33 @@ def menu(mod = "normal",clist = []):
             funzioni.cls()
             print(testmenu)
             cmd = input("inserisci comando (q per uscire)")
+            #       INSERIMENTO
             if cmd == "1":
-                funzioni.cls()
-                nome = input("nome")
-                clist.append(Cavaddru(nome))
+                clist.append(Cavaddru(funzioni.inserimento_cv()))
                 cmd = ""
+            #       VISUALIZZAZIONE
             if cmd == "2":
                 funzioni.cls()
                 for c in clist:
                     print(c)
-                cmd = input("inserisci comando (vuoto per tornare al main menu - q per uscire)")
+                os.system("pause")
+            #       ALLENAMENTO POTENZA    
+            if cmd == "3":
+                funzioni.cls()
+                try: 
+                    selected = int(input("Inserire id cavallo"))
+                    try :
+                        print(clist[selected - 1])
+                        clist[selected - 1].allenamento_spd()
+                        print("\n|\n|\nv")
+                        print(clist[selected - 1])
+                    except:
+                        print("Id non valido")
+                except: print("Valore non numerico")
+                os.system("pause")
+            if cmd == "show":
+                print(clist)
+                os.system("pause")
     return clist
 
 clist = DBManager.cread()

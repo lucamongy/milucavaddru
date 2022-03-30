@@ -8,10 +8,10 @@ class Cavaddru:
 
         if codice == 0: #codice da autoincrementare
             self.codice = Cavaddru.codice
-            Cavaddru.codice +=1
         else:   #codice fornito
             self.codice = codice
             Cavaddru.codice = codice
+        Cavaddru.codice +=1
 
         #power
         if pwr == 0:
@@ -48,3 +48,11 @@ class Cavaddru:
     def power():
         pwr = random.randint(1,100)
         return pwr
+
+    def allenamento_spd(self):
+        if self.spd < 100:
+            self.spd += 1
+            answer = "Allenamento potenza avvenuto"        
+        else:
+            answer = "Cavaddu alla massima potenza"
+        return answer
