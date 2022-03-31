@@ -3,9 +3,10 @@ from DBManager import DBManager
 from funzioni import funzioni
 import os
 
+
 def menu(mod = "normal",clist = []):
     if mod == "test":
-        testmenu = "-----------\ntestmenu:\n-1: inserisci\n-2: lista\n-----------"
+        testmenu = "---------------------\ntestmenu:\n-1: inserisci\n-2: lista\n---------------------"
         cmd = ""
         while cmd != "q":
             funzioni.cls()
@@ -13,13 +14,12 @@ def menu(mod = "normal",clist = []):
             cmd = input("inserisci comando (q per uscire)")
             #       INSERIMENTO
             if cmd == "1":
-                clist.append(Cavaddru(funzioni.inserimento_cv()))
+                clist.append(funzioni.inserimento_cv())
                 cmd = ""
             #       VISUALIZZAZIONE
             if cmd == "2":
                 funzioni.cls()
-                for c in clist:
-                    print(c)
+                funzioni.lista_cv()
                 os.system("pause")
             #       ALLENAMENTO POTENZA    
             if cmd == "3":
@@ -27,13 +27,15 @@ def menu(mod = "normal",clist = []):
                 try: 
                     selected = int(input("Inserire id cavallo"))
                     try :
+
                         print(clist[selected - 1])
                         clist[selected - 1].allenamento_spd()
                         print("\n|\n|\nv")
                         print(clist[selected - 1])
                     except:
                         print("Id non valido")
-                except: print("Valore non numerico")
+                except:
+                    print("Valore non numerico")
                 os.system("pause")
             if cmd == "show":
                 print(clist)

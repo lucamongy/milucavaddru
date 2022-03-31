@@ -1,4 +1,6 @@
+from Cavaddru import Cavaddru
 import os
+
 
 class funzioni:
 
@@ -9,5 +11,9 @@ class funzioni:
     @staticmethod
     def inserimento_cv():
         funzioni.cls()
-        nome = input("nome")
-        return nome
+        return Cavaddru(input("Inserisci nome:\t"))
+
+    @staticmethod
+    def lista_cv(clist = []):
+        for c in clist:
+            print(c)
